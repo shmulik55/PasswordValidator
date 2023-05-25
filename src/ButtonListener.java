@@ -3,6 +3,8 @@ import javax.swing.*;
 public class ButtonListener{
 
    public static JButton generate = new JButton();
+   public static String finalPassword;
+
 
    // Random password generator
    public static void generatePassword(){
@@ -17,15 +19,13 @@ public class ButtonListener{
            if(choose == 1){
                 int randomN = (int)(Math.random() * 9);
                 password += numbers.charAt(randomN);
-           }else{
-               int randomC = (int)(Math.random() * 25);
-               password+= abc.charAt(randomC);
+           }else {
+               int randomC = (int) (Math.random() * 25);
+               password += abc.charAt(randomC);
            }
        }
-
-       // Debugging and setting up new password label
-        System.out.println(password);
-        AddComps.password.setText(password);
+       finalPassword = password;
+       System.out.println(finalPassword);
    }
 
 }

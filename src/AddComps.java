@@ -3,8 +3,6 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class AddComps {
-
-    public static JLabel password = new JLabel();
     public static void addComponents(JFrame frame){
 
         Border border = BorderFactory.createLineBorder(Color.black, 1);
@@ -25,6 +23,8 @@ public class AddComps {
         label1.setBounds(0, 50, 500, 30);
         frame.add(label1);
 
+        JLabel password = new JLabel();
+
         // Generate button
         JButton button1 = ButtonListener.generate;
 
@@ -34,10 +34,9 @@ public class AddComps {
         button1.setBounds(0, 85, 150, 30);
         frame.add(button1);
         button1.addActionListener(e -> ButtonListener.generatePassword());
+        button1.addActionListener(e -> password.setText(ButtonListener.finalPassword));
 
         // New password label
-        password.setText("Placeholder");
-        password.setBorder(border);
         password.setVerticalAlignment(JLabel.CENTER);
         password.setHorizontalAlignment(JLabel.LEFT);
         password.setBounds(200, 85, 200, 30);
