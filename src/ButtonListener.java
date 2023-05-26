@@ -3,14 +3,13 @@ import javax.swing.*;
 public class ButtonListener{
 
    public static JButton generate = new JButton();
-   public static String finalPassword;
 
 
    // Random password generator
    public static void generatePassword(){
        System.out.println("Generating...");
 
-       String password = "";
+       StringBuilder password = new StringBuilder();
        String abc = "abcdefghijklmnopqrstuvwxyz";
        String numbers = "0123456789";
        for (int i = 0; i < 9; i++) {
@@ -18,14 +17,17 @@ public class ButtonListener{
            int choose = (int)(1 + Math.random() * 2);
            if(choose == 1){
                 int randomN = (int)(Math.random() * 9);
-                password += numbers.charAt(randomN);
+                password.append(numbers.charAt(randomN));
            }else {
                int randomC = (int) (Math.random() * 25);
-               password += abc.charAt(randomC);
+               password.append(abc.charAt(randomC));
            }
        }
-       finalPassword = password;
-       System.out.println(finalPassword);
+       System.out.println(password);
+       AddComps.password.setText(password.toString());
+       AddComps.password.setVerticalAlignment(JLabel.CENTER);
+       AddComps.password.setHorizontalAlignment(JLabel.LEFT);
+       AddComps.password.setBounds(200, 85, 200, 30);
    }
 
 }

@@ -3,9 +3,9 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class AddComps {
-    public static void addComponents(JFrame frame){
 
-        Border border = BorderFactory.createLineBorder(Color.black, 1);
+    public static JLabel password = new JLabel();
+    public static void addComponents(JFrame frame){
 
         // Title
         JLabel title = new JLabel("Password Validator & Generator");
@@ -23,8 +23,6 @@ public class AddComps {
         label1.setBounds(0, 50, 500, 30);
         frame.add(label1);
 
-        JLabel password = new JLabel();
-
         // Generate button
         JButton button1 = ButtonListener.generate;
 
@@ -34,7 +32,6 @@ public class AddComps {
         button1.setBounds(0, 85, 150, 30);
         frame.add(button1);
         button1.addActionListener(e -> ButtonListener.generatePassword());
-        button1.addActionListener(e -> password.setText(ButtonListener.finalPassword));
 
         // New password label
         password.setVerticalAlignment(JLabel.CENTER);
